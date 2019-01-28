@@ -21,7 +21,7 @@ func logHandler() {
 
 func addLogMessage(msg string) {
 	id := incr("log:count")
-	now := int(time.Now().Unix())
+	now := int(time.Now().UnixNano())
 	msg = "[" + strconv.Itoa(id) + "] " + msg
 	zadd("log:entries", now, msg)
 }
